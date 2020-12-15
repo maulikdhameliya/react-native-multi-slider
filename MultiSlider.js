@@ -400,6 +400,7 @@ export default class MultiSlider extends React.Component {
       sliderLength,
       markerOffsetX,
       markerOffsetY,
+      renderScale,
     } = this.props;
     const twoMarkers = this.props.values.length == 2; // when allowOverlap, positionTwo could be 0, identified as string '0' and throwing 'RawText 0 needs to be wrapped in <Text>' error
 
@@ -453,6 +454,7 @@ export default class MultiSlider extends React.Component {
 
     const body = (
       <React.Fragment>
+        {renderScale ? renderScale() : null}
         <View style={[styles.fullTrack, { width: sliderLength }]}>
           <View
             style={[
